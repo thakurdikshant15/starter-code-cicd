@@ -22,7 +22,8 @@ jobs:
       - name: Cache Dependency
         uses: actions/checkout@v4
         with:
-          path: ~/.npm
+          # path: ~/.npm
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
@@ -47,7 +48,8 @@ jobs:
       - name: Cache Dependency
         uses: actions/checkout@v4
         with:
-          path: ~/.npm
+          # path: ~/.npm
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
